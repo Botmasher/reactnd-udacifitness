@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import AddEntry from './components/AddEntry';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Shake your phone to open the developer menu!</Text>
+        <AddEntry />
       </View>
     );
   }
@@ -15,8 +15,21 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    marginLeft: 10,
+    marginRight: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+  btn: {
+    backgroundColor: '#e53224',
+    padding: 10,
+    paddingLeft: 50,
+    paddingRight: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5
+  },
+  btnText: {
+    color: '#fff'
+  }
 });
