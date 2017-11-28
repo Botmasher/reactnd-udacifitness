@@ -6,6 +6,7 @@ import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
 import TextButton from './TextButton';
 import { Ionicons } from '@expo/vector-icons';
+import { submitEntry, removeEntry } from '../utils/api';
 
 function SubmitBtn({ onPress }) {
 	return (
@@ -67,7 +68,8 @@ export default class AddEntry extends Component {
 		
 		// Navigate to home
 		
-		// Save to db
+		// Save to db using AsyncStorage
+		submitEntry({ key, entry });
 		
 		// Clear local notifications
 
@@ -80,7 +82,8 @@ export default class AddEntry extends Component {
 		
 		// Route to home
 		
-		// Update db
+		// Update db using AsyncStorage
+		removeEntry(key);
 
 	};
 
@@ -123,7 +126,7 @@ export default class AddEntry extends Component {
 						</View>
 					);
 				})}
-				<SubmitBtn onPress={this.submit()} />
+				<SubmitBtn onPress={this.submit} />
 			</View>
 		);
 	}

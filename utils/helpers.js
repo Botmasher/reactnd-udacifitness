@@ -64,7 +64,7 @@ export function getMetricMetaInfo(metric) {
       max: 24,
       unit: 'hours',
       step: 1,
-      type: 'silder',
+      type: 'slider',
       getIcon() {
         return (
           <View>
