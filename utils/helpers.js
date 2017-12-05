@@ -1,7 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { white } from './colors';
+import { white, red, orange, blue, lightPurple, pink } from './colors';
 
 export function getMetricMetaInfo(metric) {
   const info = {
@@ -85,7 +85,7 @@ export function getMetricMetaInfo(metric) {
       type: 'slider',
       getIcon() {
         return (
-          <View>
+          <View style={[styles.container, {backgroundColor: red}]}>
             <MaterialCommunityIcons
               name='food'
               color={'black'}
@@ -101,6 +101,18 @@ export function getMetricMetaInfo(metric) {
     : info[metric]
   ;
 }
+
+const styles = StyleSheet.create({
+  iconContainer: {
+    padding: 5,
+    borderRadius: 8,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20
+  }
+});
 
 export function isBetween (num, x, y) {
   if (num >= x && num <= y) {

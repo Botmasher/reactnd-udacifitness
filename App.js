@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from 'react-native';
 import AddEntry from './components/AddEntry';
+import History from './components/History';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
