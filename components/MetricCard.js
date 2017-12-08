@@ -11,7 +11,7 @@ export default function MetricCard({ date, metrics }) {
       {Object.keys(metrics).map((metric) => {
         const { getIcon, displayName, unit, backgroundColor } = getMetricMetaInfo(metric);
         return (
-          <View>
+          <View key={metric}>
             <View style={styles.metric} key={metric}>
               {getIcon()}
             </View>
