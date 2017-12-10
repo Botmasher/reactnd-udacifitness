@@ -127,7 +127,6 @@ export function isBetween (num, x, y) {
 
 export function calculateDirection (heading) {
   let direction = ''
-
   if (isBetween(heading, 0, 22.5)) {
     direction = 'North'
   } else if (isBetween(heading, 22.5, 67.5)) {
@@ -149,7 +148,6 @@ export function calculateDirection (heading) {
   } else {
     direction = 'Calculating'
   }
-
   return direction
 }
 

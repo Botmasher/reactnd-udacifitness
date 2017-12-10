@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity, StyleSheet, Animated } from 'react-native';
-import { Location, Permissions } from 'expo';
-import { calculateDirection } from '../utils/helpers';
 import { Foundation } from '@expo/vector-icons';
+import { Permissions, Location } from 'expo';
+import { calculateDirection } from '../utils/helpers';
 import { purple, white } from '../utils/colors';
 
 export default class Live extends Component {
@@ -10,9 +10,9 @@ export default class Live extends Component {
     coords: null,
     status: null,
     direction: '',
-    bounceValue: new Animated.Value(1)
-  };
-  componentDidMount() {
+    bounceValue: new Animated.Value(1),
+  }
+  componentDidMount () {
     Permissions.getAsync(Permissions.LOCATION)
       .then(({ status }) => {
         if (status === 'granted') {
@@ -34,7 +34,7 @@ export default class Live extends Component {
         this.setState(() => ({ status }));
       })
       .catch((error) => console.warn('error asking Location permission: ', error));
-  };
+  }
   setLocation = () => {
     Location.watchPositionAsync({
       enableHighAccuracy: true,
@@ -55,12 +55,14 @@ export default class Live extends Component {
         direction: newDirection,
       }));
     })
-  };
+  }
   render() {
     const { status, coords, direction, bounceValue } = this.state;
+
     if (status === null) {
       return <ActivityIndicator style={{marginTop: 30}}/>
     }
+
     if (status === 'denied') {
       return (
         <View style={styles.center}>
@@ -71,6 +73,7 @@ export default class Live extends Component {
         </View>
       );
     }
+
     if (status === 'undetermined') {
       return (
         <View style={styles.center}>
@@ -86,6 +89,7 @@ export default class Live extends Component {
         </View>
       );
     }
+
     return (
       <View style={styles.container}>
         <View style={styles.directionContainer}>
@@ -117,6 +121,7 @@ export default class Live extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
